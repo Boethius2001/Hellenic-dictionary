@@ -1,3 +1,5 @@
+//import Titles from "./dictionary.json"
+
 const Titles = [
     {
         Title: "Zeus",
@@ -181,6 +183,7 @@ const Titles = [
     }
     
 ];
+
 
 function GetSearch(){
 
