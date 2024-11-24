@@ -13,6 +13,14 @@ app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+app.get('/about', (req, res)=>{
+    res.sendFile(path.join(__dirname,'views',`about.html`));
+});
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname,'views',`none.html`));
+});
+
 app.listen(PORT, ()=>{
     console.log("Listening on 3000");
 });

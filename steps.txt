@@ -1,0 +1,1 @@
+seperate dictionary object from dictionary.js
