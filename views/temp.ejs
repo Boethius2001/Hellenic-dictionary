@@ -13,7 +13,7 @@
         </a>
         <label><h1>Search</h1></label>
         <input type="search" placeholder="Search" id="SearchElement">
-        <button onclick="GetSearch()">Search</button>
+        <button onclick="perform_search()">Search</button>
     </div>
 
     <hr style="clear: left;">
@@ -31,6 +31,18 @@
     </div>
 
     <script src="/src/search.js"></script>
+    <script>
+        function perform_search(){
+            const search_input = document.getElementById('SearchElement').value;
+            if(search_input.length != 0){
+                window.location.href = `/search/${search_input}`;
+            }
+            else{
+                window.location.href = `/search`;
+            }
+        }
+    </script>
+
 
 </body>
 </html>

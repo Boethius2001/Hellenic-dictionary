@@ -6,28 +6,58 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <div class = "UpperPage">
-        <h1>Hellenic Dictionary</h1>
-        <a href="/about">
-            <h1>About</h1>
-        </a>
-        <label><h1>Search</h1></label>
-        <input type="search" placeholder="Search" id="SearchElement">
-        <button onclick="GetSearch()">Search</button>
-    </div>
-    <hr style="clear: left;">
-    <div class = "MenuRight">
-        <div class="box1">
-        </div>
-    </div>
-    <div class="OutPut">
-        <div class="OutPutText">
-            <h1 id="TitleID">Search to get information</h1>
-            <p id="ExpID" style="font-size: 2em;"></p>
-        </div>
-    </div>
+    <h1 style="text-align: center; margin-top: 200px;
+    font-size: 100px;">Hellenic dictionary</h1>
+    <main>
+        <label id="text-label"><b>Search</b></label>
+        <input type="text" id="input-bar">
+        <button onclick="perform_search()" id="search-button">search</button>
+    </main>
 
-    <script src="/src/search.js"></script>
+    <script>
+        function perform_search(){
+            const search_element = document.getElementById('input-bar').value;
+            window.location.href = `/search/${search_element}`;
+        }
+    </script>
+
+    <style>
+        main{
+            position: absolute;
+            top: 50%;
+            left: 38%;
+            margin-top: -50px;
+            margin-left: -50px;
+            width: 600px;
+            height: 700px;
+        }
+        main #text-label{
+            font-size: 3em;
+        }
+        main #input-bar{
+            width: 300px;
+            font-size: 2em;
+
+            text-align: center;
+            
+            background-color: rgb(236, 226, 214);;
+
+            border: solid black;
+            border-radius: 10px;
+        }
+        main #search-button{
+            font-size: 2em;
+            background-color: rgb(233, 192, 143);
+
+            border: solid black;
+            border-radius: 10px;
+        }
+
+        main #search-button:hover{
+            background-color: rgb(233, 202, 165);;
+            cursor: pointer;
+}
+    </style>
 
 </body>
 </html>

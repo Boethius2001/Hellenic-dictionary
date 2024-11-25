@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dictionary = require('./src/dictionary.json');
+const { log } = require('console');
 
 const app = express();
 const PORT = 3000;
@@ -14,14 +15,29 @@ app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+// change this
+app.get('/search', (req, res)=>{
+    res.render('temp.ejs', {
+        title:"Search to get information",
+        titlde_gr:"",
+        description:""
+    });
+});
+
+// change error page to nothing found page
 app.get('/search/:something', (req, res)=>{
     const element = req.params.something;
     const data = dictionary[element];
-    res.render('temp.ejs',{
-        title : data.Title,
-        title_gr: data.TitleAlt,
-        description: data.Explanation
-    });
+    try{
+        res.render('temp.ejs',{
+            title : data.Title,
+            title_gr: data.TitleAlt,
+            description: data.Explanation
+        });
+    }
+    catch(TypeError){
+        res.sendFile(path.join(__dirname,'views',`none.html`));
+    }
 });
 
 app.get('/about', (req, res)=>{
