@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const dictionary = require('./src/dictionary.json');
+
+console.log(dictionary);
 
 const app = express();
 const PORT = 3000;
@@ -11,6 +14,10 @@ app.use('/styles',express.static(path.join(__dirname,'styles')));
 
 app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+app.get('/search/:something', (req, res)=>{
+    res.render('temp.ejs');
 });
 
 app.get('/about', (req, res)=>{

@@ -1,2 +1,3 @@
 seperate dictionary object from dictionary.js
 play with dictionary.json file
+change html to ejs
