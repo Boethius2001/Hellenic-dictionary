@@ -2,8 +2,6 @@ const express = require('express');
 const path = require('path');
 const dictionary = require('./src/dictionary.json');
 
-console.log(dictionary);
-
 const app = express();
 const PORT = 3000;
 
@@ -17,7 +15,13 @@ app.get('/',(req, res)=>{
 });
 
 app.get('/search/:something', (req, res)=>{
-    res.render('temp.ejs');
+    const element = req.params.something;
+    const data = dictionary[element];
+    res.render('temp.ejs',{
+        title : data.Title,
+        title_gr: data.TitleAlt,
+        description: data.Explanation
+    });
 });
 
 app.get('/about', (req, res)=>{
