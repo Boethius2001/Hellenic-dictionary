@@ -1,4 +1,3 @@
-fix about page
 play with dictionary.json file (<u></u>)
 add images into dictionary.json
 trim search.js

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dictionary = require('./src/dictionary.json');
+const {gods} = require('./src/elements.js');
 const { log } = require('console');
 
 const app = express();
@@ -20,7 +21,8 @@ app.get('/search', (req, res)=>{
     res.render('temp.ejs', {
         title:"Search to get information",
         titlde_gr:"",
-        description:""
+        description:"",
+        page_title:"search"
     });
 });
 
@@ -28,11 +30,13 @@ app.get('/search', (req, res)=>{
 app.get('/search/:something', (req, res)=>{
     const element = req.params.something;
     const data = dictionary[element];
+    const page_title = element;
     try{
         res.render('temp.ejs',{
             title : data.Title,
             title_gr: data.TitleAlt,
-            description: data.Explanation
+            description: data.Explanation,
+            page_title
         });
     }
     catch(TypeError){
@@ -41,7 +45,9 @@ app.get('/search/:something', (req, res)=>{
 });
 
 app.get('/about', (req, res)=>{
-    res.sendFile(path.join(__dirname,'views',`about.html`));
+    const god_list = gods;
+    const page_title = "about hellenic dictionary";
+    res.render('about.ejs',{ god_list, page_title });
 });
 
 app.get('*', (req, res)=>{

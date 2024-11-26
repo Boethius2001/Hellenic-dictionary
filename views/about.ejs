@@ -1,10 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Hellenic Dictionary</title>
-    <link rel="stylesheet" href="../styles/style.css">
-</head>
+<%- include('partials/head.ejs')%>
 <body>
     <div class="AboutField">
         <h1>About Hellenic Dictionary</h1>
@@ -12,7 +6,13 @@
         Items you can search for are below this text you will NOT get any result searching anything other than these
         </p>
 
-        <ul id="GodsList"></ul>
+        <ul id="GodsList">
+            <ul>
+            <% for(let god of god_list){%>
+                <li> <%=god%> </li>
+            <%}%>
+            </ul>
+        </ul>
 
         <script src="../src/search.js"></script>
     </div>
