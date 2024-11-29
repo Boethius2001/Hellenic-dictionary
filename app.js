@@ -36,6 +36,7 @@ app.get('/search/:something', (req, res)=>{
             title : data.Title,
             title_gr: data.TitleAlt,
             description: data.Explanation,
+            image: data.Image,
             page_title
         });
     }
